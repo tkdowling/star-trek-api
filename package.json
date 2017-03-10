@@ -1,0 +1,30 @@
+{
+  "name": "star-trek-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikkelrd/star-trek-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikkelrd/star-trek-api/issues"
+  },
+  "homepage": "https://github.com/mikkelrd/star-trek-api#readme",
+  "dependencies": {
+    "angular": "^1.6.3",
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.1",
+    "eventemitter3": "^2.0.2",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "express-livereload": "0.0.24"
+  }
+}

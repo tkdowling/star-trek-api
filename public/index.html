@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="star-trek-tester">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body ng-controller="mainCtrl">
+        <ul>
+            <li ng-repeat="person in people">{{person.first_name}} {{person.last_name}}</li>
+        </ul>
+        <form ng-submit="createPerson(newPerson)">
+            <input type="text" ng-model="newPerson">
+        </form>
+    </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script>
+        angular.module('star-trek-tester', [])
+        .controller('mainCtrl', function($scope, $http){
+            $scope.getPeople = function(){
+                $http.get('/api/people').then(response => {
+                    console.log(response);
+                    $scope.people = response.data.results;
+                }, error => {console.log(error)});
+            };
+            $scope.getPeople();
+
+            $scope.createPerson = function(newPerson){
+                $http.post('/api/people', {name: newPerson}).then(response => {
+                    console.log(response);
+                    $scope.getPeople();
+                }, error => {console.log(error)});
+            };
+        });
+    </script>
+
+    <script src="http://localhost:35729/livereload.js"></script>
+</html>
